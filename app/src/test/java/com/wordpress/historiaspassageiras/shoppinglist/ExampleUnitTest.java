@@ -1,8 +1,8 @@
-package com.wordpress.a0unit.myshoppinglist;
+package com.wordpress.historiaspassageiras.shoppinglist;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
