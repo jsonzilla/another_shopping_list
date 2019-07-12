@@ -11,6 +11,7 @@ import android.widget.ListView
 import com.wdullaer.swipeactionadapter.SwipeActionAdapter
 import com.wdullaer.swipeactionadapter.SwipeActionAdapter.SwipeActionListener
 import com.wdullaer.swipeactionadapter.SwipeDirection
+import com.wdullaer.swipeactionadapter.SwipeDirection.*
 
 import java.util.ArrayList
 import java.util.HashSet
@@ -84,10 +85,11 @@ class ShoppingListActivity : AppCompatActivity() {
         val shoppingList: ListView = findViewById(R.id.shopping_listView)
         with(swipeListAdapter!!) {
             setListView(shoppingList)
-            addBackground(SwipeDirection.DIRECTION_FAR_RIGHT, R.layout.row_bg_turn_rigtht)
-                .addBackground(SwipeDirection.DIRECTION_NORMAL_RIGHT, R.layout.row_bg_turn_rigth_far)
-                .addBackground(SwipeDirection.DIRECTION_FAR_LEFT, R.layout.row_bg_turn_left)
-                .addBackground(SwipeDirection.DIRECTION_NORMAL_LEFT, R.layout.row_bg_turn_left)
+
+            addBackground(DIRECTION_FAR_RIGHT, R.layout.row_bg_turn_rigtht)
+                .addBackground(DIRECTION_NORMAL_RIGHT, R.layout.row_bg_turn_rigth_far)
+                .addBackground(DIRECTION_FAR_LEFT, R.layout.row_bg_turn_left)
+                .addBackground(DIRECTION_NORMAL_LEFT, R.layout.row_bg_turn_left)
 
             setSwipeActionListener(
                     object : SwipeActionListener {
@@ -96,20 +98,17 @@ class ShoppingListActivity : AppCompatActivity() {
                         }
 
                         override fun shouldDismiss(position: Int, direction: SwipeDirection): Boolean {
-                            return direction == SwipeDirection.DIRECTION_FAR_RIGHT ||
-                                    direction == SwipeDirection.DIRECTION_NORMAL_RIGHT ||
-                                    direction == SwipeDirection.DIRECTION_FAR_LEFT ||
-                                    direction == SwipeDirection.DIRECTION_NORMAL_LEFT
+                            return direction != DIRECTION_NEUTRAL
                         }
 
                         override fun onSwipe(positionList: IntArray, directionList: Array<SwipeDirection>) {
-                            for (i in positionList.indices) {
+                            positionList.indices.forEach { i ->
                                 val position = positionList[i]
                                 when (directionList[i]) {
-                                    SwipeDirection.DIRECTION_FAR_RIGHT -> undone(position)
-                                    SwipeDirection.DIRECTION_NORMAL_RIGHT -> doneItem(position)
-                                    SwipeDirection.DIRECTION_FAR_LEFT, SwipeDirection.DIRECTION_NORMAL_LEFT -> removeItem(position)
-                                    SwipeDirection.DIRECTION_NEUTRAL -> Unit
+                                    DIRECTION_FAR_RIGHT -> undone(position)
+                                    DIRECTION_NORMAL_RIGHT -> doneItem(position)
+                                    DIRECTION_FAR_LEFT, DIRECTION_NORMAL_LEFT -> removeItem(position)
+                                    DIRECTION_NEUTRAL -> Unit
                                 }
                                 itemsAdapter!!.notifyDataSetChanged()
                                 swipeListAdapter!!.notifyDataSetChanged()

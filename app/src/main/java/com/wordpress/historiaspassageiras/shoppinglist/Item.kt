@@ -5,19 +5,11 @@ import android.os.Parcelable
 
 import com.google.gson.Gson
 
-class Item : Parcelable {
-    private var item: String = ""
-    private var itemDone: Boolean = false
+class Item(private var item: String = "", private var itemDone: Boolean = false) : Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readByte() != 0.toByte())
 
-    constructor(i: String, d: Boolean) {
-        item = i
-        itemDone = d
-    }
-
-    private constructor(`in`: Parcel) {
-        item = `in`.readString()
-        itemDone = `in`.readInt() == 1
-    }
 
     internal fun getItem() = item
 

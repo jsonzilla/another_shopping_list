@@ -11,14 +11,10 @@ internal class ItemAdapter(private val _context: Context, private val _layoutId:
 
     private fun buildView(position: Int, view: View): View {
         val item = getItem(position)
-        val itemName = item!!.getItem()
-        val done = item.isDone()
-        val doneString = if (done) "Done" else ""
-
         val itemView: TextView = view.findViewById(R.id.itemItem)
         val doneView: TextView = view.findViewById(R.id.itemDone)
-        itemView.text = itemName
-        doneView.text  = doneString
+        itemView.text = item!!.getItem()
+        doneView.text  = if (item.isDone()) "Done" else ""
 
         return view
     }
