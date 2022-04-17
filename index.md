@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## another_shopping_list
 
 You can use the [editor on GitHub](https://github.com/jsonzilla/another_shopping_list/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
