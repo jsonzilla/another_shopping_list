@@ -1,4 +1,4 @@
-package com.wordpress.historiaspassageiras.shoppinglist
+package another_shopping_list.io.github.jsonzilla
 
 import android.content.Context
 import android.os.Bundle

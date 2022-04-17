@@ -1,4 +1,4 @@
-package com.wordpress.historiaspassageiras.shoppinglist
+package another_shopping_list.io.github.jsonzilla
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -7,7 +7,7 @@ import com.google.gson.Gson
 
 class Item(private var item: String = "", private var itemDone: Boolean = false) : Parcelable {
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
+        parcel.readString().toString(),
             parcel.readByte() != 0.toByte())
 
 
