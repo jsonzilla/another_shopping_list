@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Another Shopping List</string>
-    <string name="action_settings">Configuraçãoes</string>
+    <string name="app_name">Shopping List</string>
     <string name="add_button_text">+</string>
-    <string name="item_editText_hint">Escreva seu novo item</string>
-    <string name="shared_data">another_shopping_list.io.github.jsonzilla.PREFERENCE_FILE_KEY</string>
-    <string name="done_item">Feito</string>
+    <string name="clean_button_text">-</string>
+    <string name="item_editText_hint">Novo item</string>
+    <string name="shared_data">com.wordpress.historiaspassageiras.shoppinglist.PREFERENCE_FILE_KEY</string>
+    <string name="done">Feito</string>
+    <string name="item">Item</string>
 </resources>

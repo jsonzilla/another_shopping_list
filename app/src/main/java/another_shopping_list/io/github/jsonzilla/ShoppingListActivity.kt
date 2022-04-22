@@ -58,6 +58,25 @@ class ShoppingListActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun cleanAllDone() {
+        val toRemove: ArrayList<Item> = ArrayList()
+        for (i in itemsMemory!!) {
+            if (i.isDone()) {
+                toRemove.add(i)
+            }
+        }
+
+        for (r in toRemove) {
+            itemsMemory!!.remove(r)
+            itemsAdapter!!.remove(r)
+        }
+
+        itemsAdapter!!.notifyDataSetChanged()
+        swipeListAdapter!!.notifyDataSetChanged()
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping_list)
@@ -79,6 +98,8 @@ class ShoppingListActivity : AppCompatActivity() {
 
         val addButton: Button = findViewById(R.id.add_button)
         addButton.setOnClickListener{ addItemToViewList(itemEdit!!.text.toString()) }
+        val cleanButton: Button = findViewById(R.id.clean_button)
+        cleanButton.setOnClickListener{ cleanAllDone() }
     }
 
     private fun configureSwipe() {
