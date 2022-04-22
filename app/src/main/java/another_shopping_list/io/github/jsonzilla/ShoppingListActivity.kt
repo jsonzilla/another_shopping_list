@@ -1,8 +1,8 @@
-package com.wordpress.historiaspassageiras.shoppinglist
+package another_shopping_list.io.github.jsonzilla
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -59,7 +59,7 @@ class ShoppingListActivity : AppCompatActivity() {
     }
 
     private fun cleanAllDone() {
-        var toRemove: ArrayList<Item> = ArrayList()
+        val toRemove: ArrayList<Item> = ArrayList()
         for (i in itemsMemory!!) {
             if (i.isDone()) {
                 toRemove.add(i)
