@@ -58,6 +58,7 @@ class ShoppingListActivity : AppCompatActivity() {
         }
     }
 
+
     private fun cleanAllDone() {
         val toRemove: ArrayList<Item> = ArrayList()
         for (i in itemsMemory!!) {
@@ -74,6 +75,7 @@ class ShoppingListActivity : AppCompatActivity() {
         itemsAdapter!!.notifyDataSetChanged()
         swipeListAdapter!!.notifyDataSetChanged()
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
